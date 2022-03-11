@@ -267,7 +267,6 @@ Use removeArtist to do the following:
 
 function removeArtist(arrayToRemoveFrom, indexToRemoveFrom) {
   const copiedArray2 = arrayToRemoveFrom;
-  delete copiedArray2[indexToRemoveFrom];
   copiedArray2.splice(indexToRemoveFrom, 1);
   return copiedArray2;
 }
@@ -290,11 +289,13 @@ Use addArtist to do the following:
 4. Return the array
 🌟 EXAMPLE: Invoking addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.') should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function addArtist(arrayToAddTo, nameToAdd, yearsToAdd, genreToAdd, nationalityToAdd, bioToAdd) {
+  const artistToAdd = {name: nameToAdd, years: yearsToAdd, genre: genreToAdd, nationality: nationalityToAdd, bio: bioToAdd};
+  arrayToAddTo.push(artistToAdd);
+  return arrayToAddTo;
 }
 
-
+console.log(addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.'))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
