@@ -209,11 +209,11 @@ Practice accessing data above by console.log-ing following items:
 
 //(1) Name of the first artist (0th index) in the array
 
-console.log(artists[0].name);
+console.log('Task 1.1:', artists[0].name);
 
 //(2) Bio of the third artist (2nd index) in the array 
 
-console.log(artists[2].bio);
+console.log('Task 1.2:', artists[2].bio);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 (not auto tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
@@ -221,7 +221,7 @@ There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is current
 
 artists[8].name = 'Vincent Van Gogh';
 
-console.log(artists[8].name);
+console.log('Task 2:', artists[8].name);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -236,7 +236,7 @@ function getArtistByIndex(arrayToRetrieveFrom, indexToRetrieveFrom) {
   return `the artist at index ${indexToRetrieveFrom} is ${arrayToRetrieveFrom[indexToRetrieveFrom].name}`;
 }
 
-console.log(getArtistByIndex(artists, 0));
+console.log('Task 3:', getArtistByIndex(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use copy to do the following: 
@@ -247,14 +247,14 @@ Use copy to do the following:
 */
 
 function listOfNames(arrayToFetchFrom) {
-  const copiedArray = arrayToFetchFrom;
+  const copiedArray = arrayToFetchFrom.slice();
   for (let i = 0; i < copiedArray.length; i++) {
     copiedArray[i] = arrayToFetchFrom[i].name;
   }
   return copiedArray;
 }
 
-console.log(listOfNames(artists));
+console.log('Task 4:', listOfNames(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use removeArtist to do the following:
@@ -266,12 +266,12 @@ Use removeArtist to do the following:
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
 
 function removeArtist(arrayToRemoveFrom, indexToRemoveFrom) {
-  const copiedArray2 = arrayToRemoveFrom;
+  const copiedArray2 = arrayToRemoveFrom.slice();
   copiedArray2.splice(indexToRemoveFrom, 1);
   return copiedArray2;
 }
 
-console.log(removeArtist(artists, 0));
+console.log('Task 5:', removeArtist(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -295,7 +295,7 @@ function addArtist(arrayToAddTo, nameToAdd, yearsToAdd, genreToAdd, nationalityT
   return arrayToAddTo;
 }
 
-console.log(addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.'))
+console.log('Task 6:', addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.'))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
@@ -305,9 +305,10 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-const prolificArtists = [];
+// const prolificArtists = [];
 
 function lotsOfArt(arrayToCheck) {
+  const prolificArtists = [];
   for (let i = 0; i < arrayToCheck.length; i++) {
     if (arrayToCheck[i].paintings > 100) {
       prolificArtists.push(arrayToCheck[i].name);
@@ -316,7 +317,7 @@ function lotsOfArt(arrayToCheck) {
   return prolificArtists;
 }
 
-console.log(lotsOfArt(artists));
+console.log('Task 7:', lotsOfArt(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 8: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistInfo to do the following: 
@@ -328,8 +329,15 @@ Use artistInfo to do the following:
   "Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; 6 July 1907 – 13 July 1954) was a Mexican artist who painted many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class and race in Mexican society. Her paintings often had strong autobiographical elements and mixed realism with fantasy. In addition to belonging to the post-revolutionary Mexicayotl movement, which sought to define a Mexican identity, Kahlo has been described as a surrealist or magical realist.Born to a German father and a mestiza mother, Kahlo spent most of her childhood and adult life at her family home in Coyoacán, La Casa Azul, now known and publicly accessible as the Frida Kahlo Museum. She was disabled by polio as a child. Until a traffic accident at age eighteen caused lifelong pain and medical problems, she had been a promising student headed for medical school. During her recovery, she returned to her childhood hobby of art with the idea of becoming an artist."
 */
 
-function artistInfo(/*Your Code Here*/){
-  /*Your Code Here*/
+const indexOfArtistToExamine = '';
+
+function artistInfo(arrayToExamine, artistToExamine){
+  for (let i = 0; i < arrayToExamine.length; i++) {
+    if (arrayToExamine[i].name = artistToExamine) {
+      const indexOfArtistToExamine = i;
+    }
+  }
+  return arrayToExamine[indexOfArtistToExamine].bio; 
 }
 
 
